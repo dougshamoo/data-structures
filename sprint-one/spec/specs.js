@@ -141,6 +141,14 @@ define([
         expect(queue.dequeue()).to.equal('b');
       });
 
+      it('reports a size of 2 after adding two items, removing one, and adding one.', function() {
+        queue.enqueue('a');
+        queue.enqueue('b');
+        queue.dequeue();
+        queue.enqueue('c');
+        expect(queue.size()).to.equal(2);
+      });
+
     });
 
     describe('queue-specific behavior', function(){
