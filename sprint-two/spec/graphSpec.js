@@ -27,6 +27,15 @@ describe('graph', function() {
     expect(graph.contains('puppies')).to.equal(false);
   });
 
+  it('should remove edges with deleted nodes', function() {
+    graph.addNode('doug');
+    graph.addNode('yeon');
+    graph.addEdge('doug', 'yeon');
+    graph.removeNode('doug');
+    expect(graph.contains('doug')).to.equal(false);
+    expect(graph.hasEdge('yeon', 'doug')).to.equal(false);
+  });
+
   it('should create edges between two nodes', function() {
     graph.addNode('puppies');
     graph.addNode('kittens');
