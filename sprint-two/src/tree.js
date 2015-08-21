@@ -3,26 +3,42 @@ var Tree = function(value){
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];
+  _.extend(newTree, treeMethods);
+
 
   return newTree;
 };
 
-
-
-
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-
+  var tree = Tree(value);
+  this.children.push(tree);
 };
 
 treeMethods.contains = function(target){
+  if (target === 9) debugger;
+  if (this.value === target) {
+    return true;
+  }
+  else {
+    for (var i=0; i < this.children.length; i++) {
 
+      var found = this.children[i].contains(target);
+      if (found === false) {
+        continue;
+      }
+
+      return found;
+    }
+    return false;
+  }
 };
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild: O(1)
+ contains: O(n)
  */
