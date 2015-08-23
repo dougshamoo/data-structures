@@ -32,7 +32,6 @@ HashTable.prototype.insert = function(k, v){
   if (this._count > 0.75 * this._limit) {
     this.resize(this._limit * 2);
   }
-
 };
 
 HashTable.prototype.retrieve = function(k){
@@ -74,8 +73,8 @@ HashTable.prototype.resize = function(newLimit) {
   var oldStorage = this._storage;
   this._storage = LimitedArray(newLimit)
   this._limit = newLimit;
-  var that = this;
   this._count = 0;
+  var that = this;
   oldStorage.each(function(bucket, index) {
     if (bucket) {
       for (var i = 0; i < bucket.length; i++) {
@@ -84,7 +83,6 @@ HashTable.prototype.resize = function(newLimit) {
       }
     }
   });
-
 }
 
 /*

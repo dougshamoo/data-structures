@@ -11,7 +11,6 @@ var Graph = function(){
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node){
   this.storage[node] = [];
-
 };
 
 // ------------------------
@@ -66,6 +65,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
       this.storage[fromNode].splice(i, 1);
     }
   }
+
   for (var j = 0; j < this.storage[toNode].length; j++) {
     if (this.storage[toNode][j] === fromNode) {
       this.storage[toNode].splice(j, 1);
@@ -91,6 +91,3 @@ Graph.prototype.forEachNode = function(cb){
  removeEdge: O(n)
  forEachNode: O(n)
  */
-
-
-

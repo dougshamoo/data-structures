@@ -24,30 +24,23 @@ var LinkedList = function(){
     if (current === null) {
       return false;
     }
-
     if (current === undefined) {
       current = list.head;
-
     }
-
     //base case
     if (current.value === target) {
       return true;
     }
-
     //recursive
     return list.contains(target, current.next);
   };
-
   return list;
 };
 
 var Node = function(value){
   var node = {};
-
   node.value = value;
   node.next = null;
-
   return node;
 };
 
